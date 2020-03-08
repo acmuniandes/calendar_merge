@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Merge</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style media = "screen">
+        #upload-button{
+            padding: 10px;
+            color: white;
+            background-color:gray;
+            border: 1px solid thistle;
+            border-color: darkgray;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #custom-text{
+            margin-left: 10px;
+            font-family: sans-serif;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="real-file"  hidden = "hidden">
+    <button type="button" id = "upload-button"> Elige un horario </button>
+    <span id = "custom-text"> No se ha elegido un horario</span> 
+    <script type="text/javascript">
+    const realFilebtn = document.getElementById("real-file");
+    const custombtn = document.getElementById("upload-button");
+    const customTxt = document.getElementById("custom-text");
+    custombtn.addEventListener("click", function(){
+        realFilebtn.click();
+    });
+    realFilebtn.addEventListener("change", function(){
+        if(realFilebtn.value){
+        customTxt.innerHTML = realFilebtn;
+        }
+        else {
+            customTxt.innerHTML = "No se ha elegido un archivo";
+        }
+    });
+    </script>
+</body>
+</html>
